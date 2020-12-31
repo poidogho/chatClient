@@ -1,4 +1,4 @@
-import { LOGIN, REGISTER, LOGIN_ERROR, REGISTER_ERROR } from './types';
+import { LOGIN, REGISTER, LOGIN_ERROR, REGISTER_ERROR, LOGOUT } from './types';
 import AuthService from '../services/authService';
 
 export const login = (userData, history) => (dispatch) => {
@@ -33,4 +33,11 @@ export const register = (userData, history) => (dispatch) => {
         payload: err,
       });
     });
+};
+
+export const logout = () => (dispatch) => {
+  AuthService.logout();
+  dispatch({
+    type: LOGOUT,
+  });
 };

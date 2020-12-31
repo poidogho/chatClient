@@ -1,11 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Navbar from './Navbar';
 
 const Chat = () => {
   const user = useSelector((state) => state.authReducer.user);
   return (
     <div>
-      <p>Welcome {user.firstName}</p>
+      <Navbar />
     </div>
   );
 };

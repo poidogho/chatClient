@@ -1,9 +1,15 @@
-import { LOGIN, REGISTER, REGISTER_ERROR, LOGIN_ERROR } from '../actions/types';
+import {
+  LOGIN,
+  REGISTER,
+  LOGOUT,
+  REGISTER_ERROR,
+  LOGIN_ERROR,
+} from '../actions/types';
 
 const initialState = {
-  user: {},
-  token: '',
-  isLoggedIn: false,
+  user: JSON.parse(localStorage.getItem('user')) || {},
+  token: localStorage.getItem('token') || '',
+  isLoggedIn: localStorage.getItem('user') ? true : false,
 };
 const authReducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -12,7 +18,7 @@ const authReducer = (state = initialState, action) => {
     case REGISTER:
       return {
         ...state,
-        user: payload,
+        user: payload.user,
         token: payload.token,
         isLoggedIn: true,
       };
@@ -20,6 +26,13 @@ const authReducer = (state = initialState, action) => {
     case REGISTER_ERROR:
       return {
         ...state,
+        token: '',
+        isLoggedIn: false,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        user: {},
         token: '',
         isLoggedIn: false,
       };

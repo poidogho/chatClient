@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { Button, Form } from 'semantic-ui-react';
 import injectSheet from 'react-jss';
 import loginImage from '../../assets/images/login.svg';
-import AuthService from '../../services/authService';
 import { login } from '../../actions/authActions';
 
 const styles = {
