@@ -8,6 +8,7 @@ import {
   Form,
 } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
+import FriendList from './FriendList';
 import { logout } from '../../actions/authActions';
 import menuLogo from '../../assets/images/menu.png';
 import avatarImg from '../../assets/images/avatar.svg';
@@ -81,6 +82,9 @@ const Navbar = () => {
         <a href="!#" className="closebtn" onClick={(e) => closeNav(e)}>
           &times;
         </a>
+        <br />
+        <br />
+        <FriendList />
       </div>
 
       <div className="nav-menu">
